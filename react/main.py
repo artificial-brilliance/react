@@ -95,7 +95,7 @@ def main(task: str):
         actions={
             "search": search,
         },
-        log=print,
+        log=lambda x: print(f"> {x}"),
         system_prompt=system_prompt,
         max_iterations=10,
     ).run()
