@@ -4,7 +4,7 @@ import re
 from dataclasses import dataclass
 from typing import Callable, Optional, Dict
 
-from cortex import Cortex
+from chatbot import Chatbot
 
 KEY_VALUE_REGEX = re.compile("^([\\w ]+):(.*)$")
 
@@ -21,11 +21,11 @@ class ReactRunner(object):
     max_iterations: int
 
     def run(self, text: Optional[str] = None) -> Optional[str]:
-        cortex = Cortex(self.system_prompt)
+        chatbot = Chatbot(self.system_prompt)
         message = text or ''
         for _ in range(self.max_iterations):
             self.log(message)
-            response = cortex.process(message)
+            response = chatbot.process(message)
 
             self.log(f'Processing:\n{response}\n')
             parsed_output = parseOutput(response)

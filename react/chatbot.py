@@ -6,7 +6,7 @@ import openai
 
 openai.api_key = os.environ["OPENAI_API_KEY"]
 
-class Cortex(object):
+class Chatbot(object):
     def __init__(self, system_prompt: Optional[str]):
         self.messages = [] if system_prompt is None else [{
             "role": "system",
