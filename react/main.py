@@ -1,12 +1,11 @@
 
 import sys
 
-import httpx
-
 from dataclasses import dataclass
 from typing import List
 
 from react_runner import ReactRunner
+from search import Search
 
 @dataclass
 class Tool:
@@ -72,19 +71,8 @@ Final Answer: The final answer for the task
 '''
 """
 
-def search(query: str) -> str:
-    try:
-        return httpx.get("https://en.wikipedia.org/w/api.php", params={
-            "action": "query",
-            "list": "search",
-            "srsearch": query,
-            "format": "json"
-        }).json()["query"]["search"][0]["snippet"]
-    except Exception:
-        return 'Nothing found'
-
-
 def main(task: str):
+    searcher = Search(log=lambda x: print(f"* {x}"))
     tools = [Tool(
         name="search",
         input_description="The query used to search wikipedia",
@@ -93,7 +81,7 @@ def main(task: str):
     system_prompt = buildSystemPrompt(task, tools)
     ReactRunner(
         actions={
-            "search": search,
+            "search": lambda query: searcher.search(query),
         },
         log=lambda x: print(f"> {x}"),
         system_prompt=system_prompt,
