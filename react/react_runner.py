@@ -27,25 +27,25 @@ class ReactRunner(object):
             self.log(message)
             response = chatbot.process(message)
 
-            self.log(f'Processing:\n{response}\n')
+            self.log(f'Response:\n{response}\n')
             parsed_output = parseOutput(response)
 
             if FINAL_ANSWER in parsed_output:
                 return parsed_output[FINAL_ANSWER]
             
             if ACTION not in parsed_output:
-                message = "Observation: Action not specified"
+                message = "Observation: I didn't specify an action to perform"
                 continue
 
             if ACTION_INPUT not in parsed_output:
-                message = "Observation: No input to action specified"
+                message = "Observation: I specified an action, but not an input for it"
                 continue
 
             action = parsed_output[ACTION]
             action_input = parsed_output[ACTION_INPUT]
 
             if action not in self.actions:
-                message = f"Observation: Unrecognized action {action}"
+                message = f"Observation: I specified an unrecognized {action}"
                 continue
 
             self.log(f"Running: {action} {action_input}")
