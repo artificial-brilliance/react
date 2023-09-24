@@ -4,7 +4,7 @@ import re
 from dataclasses import dataclass
 from typing import Callable, Optional, Dict
 
-from chatbot import Chatbot
+from react.chatbot import Chatbot
 
 KEY_VALUE_REGEX = re.compile("^([\\w ]+):(.*)$")
 
@@ -55,6 +55,38 @@ class ReactRunner(object):
         return None
 
 def parseOutput(output: str) -> Dict[str, str]:
+    """
+    Used to parse the output from an LLM and identify keys and
+    values in text that looks like the following:
+    ```
+    Thought: some thought
+    Action: some action
+    Action Input: some action input
+    Observation: some observation
+    ```
+    For that input, the output from this function will be:
+    ```
+    {
+      "Thought": "some thought",
+      "Action": "some action",
+      "Action Input": "some action input",
+      "Observation": "some observation"
+    }
+    ```
+    Note: If the input has repeated keys, the last value is used,
+    i.e. given the input:
+    ```
+    Some Key: some value 1
+    Some Key: some value 2
+    ```
+    then the output is:
+    ```
+    {
+      "Some Key": "some value 2"
+    }
+    ```
+    """
+
     result = {}
     lines = output.split('\n')
     i = 0

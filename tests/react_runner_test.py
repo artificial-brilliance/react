@@ -19,3 +19,11 @@ Empty:
     "Observation": "some observation",
     "Empty": "",
 })
+
+    def testParsedOutputUsesLastValue(self):
+        self.assertEqual(parseOutput("""
+Some Key: some value 1
+Some Key: some value 2
+"""), {
+    "Some Key": "some value 2",
+})

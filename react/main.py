@@ -1,9 +1,9 @@
 
 import sys
 
-from prompt import buildSystemPrompt, Tool
-from react_runner import ReactRunner
-from search import Search
+from react.prompt import buildSystemPrompt, Tool
+from react.react_runner import ReactRunner
+from react.search import Search
 
 def main(task: str):
     searcher = Search(log=lambda x: print(f"* {x}"))
