@@ -6,9 +6,9 @@ It roughly attempts to get the model to use a Thought/Action/Action Input/Observ
 
 The code is inspired from a mixture approaches from the following along
 with custom tweaks and additions:
-* The original ReAct paper (https://arxiv.org/abs/2210.03629)
-* Simon Willison's blog (https://til.simonwillison.net/llms/python-react-pattern)
-* LangChain (https://www.langchain.com)
+* [The original ReAct paper](https://arxiv.org/abs/2210.03629)
+* [Simon Willison's blog](https://til.simonwillison.net/llms/python-react-pattern)
+* [LangChain](https://www.langchain.com)
 
 ## Usage
 
