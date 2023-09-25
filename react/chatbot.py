@@ -7,6 +7,14 @@ import openai
 openai.api_key = os.environ["OPENAI_API_KEY"]
 
 class Chatbot(object):
+    """
+    Represents a back-and-forth conversation between
+    a user and an assistant.
+
+    See https://github.com/artificial-brilliance/simple_chatbot
+    for more information
+    """
+
     def __init__(self, system_prompt: Optional[str]):
         self.messages = [] if system_prompt is None else [{
             "role": "system",

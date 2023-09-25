@@ -9,6 +9,18 @@ class Tool:
     tool_description: str
 
 def buildSystemPrompt(task: str, tools: List[Tool]):
+    """
+    Builds a system prompt for the specified task and tools.
+    The prompt uses the ReAct (Reason + Action) approach
+    as described in https://arxiv.org/abs/2210.03629.
+
+    This prompt is inspired from a mixture approaches from along
+    with custom tweaks:
+    * The original ReAct paper (https://arxiv.org/abs/2210.03629)
+    * Simon Willison's blog (https://til.simonwillison.net/llms/python-react-pattern)
+    * LangChain (https://www.langchain.com)
+    """
+
     tool_names = "["
     for index, tool in enumerate(tools):
         if index > 0:
