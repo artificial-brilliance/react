@@ -14,8 +14,8 @@ def buildSystemPrompt(task: str, tools: List[Tool]):
     The prompt uses the ReAct (Reason + Action) approach
     as described in https://arxiv.org/abs/2210.03629.
 
-    This prompt is inspired from a mixture approaches from along
-    with custom tweaks:
+    This prompt is inspired from a mixture approaches from the
+    following along with custom tweaks and additions:
     * The original ReAct paper (https://arxiv.org/abs/2210.03629)
     * Simon Willison's blog (https://til.simonwillison.net/llms/python-react-pattern)
     * LangChain (https://www.langchain.com)
