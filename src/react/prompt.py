@@ -46,7 +46,10 @@ Your task is to:
 
 You use a Thought/Action/Action Input/Observation pattern:
 '''
-Thought: The thought you are having based on the observation
+Thought 1: The thought you are having based on the observation
+Thought 2: The thought you are having based on thought 1 and the observation
+...
+Thought M: The thought you are having based on thought M-1, M-2, ..., 1
 Action: The action you want to take.  One of {tool_names}
 Action Input: The input to the action
 Observation: An observation
@@ -66,7 +69,10 @@ Select ONLY ONE option below:
 
 Option 1: To use a tool, you MUST use the following format:
 '''
-Thought: Do I need to use a tool? Yes because of the observation [the reason why you need to use a tool...]
+Thought 1: Because of the observation I think ...
+Thought 2: Because of the observation and thought 1, I think ...
+...
+Thought M: Do I need to use a tool? Yes because of the observation [the reason why you need to use a tool...]
 Action: MUST be one of {tool_names}
 Action Input: The input to the tool
 Observation: The observation from the action

@@ -12,7 +12,7 @@ with custom tweaks and additions:
 
 ## Usage
 
-This repository was written using Python 3.11 and uses the [Poetry](https://python-poetry.org/) tool to handle dependencies.
+This repository was written using Python 3.11 and uses the [pdm](https://pdm.fming.dev) tool to handle dependencies.
 
 To get started
 1. Clone the repo:
@@ -21,15 +21,15 @@ To get started
    ```
 2. At the root of the repo, install necessary dependencies:
    ```
-     poetry install
+     pdm install
    ```
 3. At the root of the repo, run the code with:
    ```
-     ./scripts/run.sh '<some question to answer>'
+     pdm run start '<some question to answer>'
    ```
 4. (Optionally) run tests using:
    ```
-     ./scripts/test.sh
+     pdm run test
    ```
 
 ## Examples
