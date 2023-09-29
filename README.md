@@ -37,7 +37,7 @@ To get started
 The following example shows what happens when asking the LLM a question that it cannot know because (at the time the code was run) the iphone 15 was not released yet and descriptions of its release date were (most-likely) not in any training data.
 
 ```yaml
-$ ./scripts/run.sh 'when was the iphone 15 released'
+$ pdm run start 'when was the iphone 15 released'
 >
 > Response:
 Thought: I need to use a tool to find out when the iPhone 15 was released.
